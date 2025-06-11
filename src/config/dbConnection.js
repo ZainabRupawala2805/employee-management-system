@@ -5,7 +5,7 @@ const connectDB = (mongoDbUrl) => {
         mongoose.connect(mongoDbUrl);
         mongoose.connection.on("connected", () => {
             resolve(true);
-            console.log("Connected");
+            console.log("Connected", mongoDbUrl);
         });
         mongoose.connection.on("error", (err) => {
             reject(false);
