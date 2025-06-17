@@ -10,19 +10,19 @@ const session = require('express-session');
 require('dotenv').config();
 
 // DataBase
-const connectDB = require('./config/dbConnection');
+const connectDB = require('./src/config/dbConnection');
 
 // Routers
-const usersRoutes = require('./routes/usersRoutes');
-const attendanceRoutes = require('./routes/attendanceRoutes');
-const roleRoutes = require('./routes/roleRoutes');
-const leaveRoutes = require('./routes/leaveRoutes');
-const taskRoutes = require("./routes/taskRoutes");
-const projectRoutes = require('./routes/projectRoutes');
-const dashboardRoutes = require('./routes/dashboardRoutes');
+const usersRoutes = require('./src/routes/usersRoutes');
+const attendanceRoutes = require('./src/routes/attendanceRoutes');
+const roleRoutes = require('./src/routes/roleRoutes');
+const leaveRoutes = require('./src/routes/leaveRoutes');
+const taskRoutes = require("./src/routes/taskRoutes");
+const projectRoutes = require('./src/routes/projectRoutes');
+const dashboardRoutes = require('./src/routes/dashboardRoutes');
 
 // middleware
-const authenticateUser = require('./middlewares/authentication');
+const authenticateUser = require('./src/middlewares/authentication');
 
 const app = express();
 

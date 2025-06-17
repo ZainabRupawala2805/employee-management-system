@@ -2,10 +2,11 @@
   "name": "task-management-tool",
   "version": "1.0.0",
   "description": "This is a task management tool for Web Whiz Infosys",
-  "main": "./src/app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/app.js"
+    "start": "node index.js",
+    "dev": "npx nodemon index.js"
   },
   "author": "Web Whiz Infosys",
   "license": "ISC",
