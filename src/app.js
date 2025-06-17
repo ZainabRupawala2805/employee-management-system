@@ -83,7 +83,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 // Setup Environment Settings
-require('dotenv').config({ path: 'src/.env' });
+// require('dotenv').config({ path: 'src/.env' });
+require('dotenv').config();
 
 // DataBase
 const connectDB = require('./config/dbConnection');
@@ -118,6 +119,11 @@ app.use(session({
     secret: 'companyManagement',
     cookie: { secure: true }
 }));
+
+app.get("/", (_, res) => {
+  let data = "Ok 😍";
+  return res.send({ Status: data });
+});
 
 app.use('/user', usersRoutes);
 app.use('/attendance', attendanceRoutes);
