@@ -35,7 +35,8 @@ router.put(
 router.get("/get-all", authenticateUser, taskController.getAllTasks);
 router.get("/get-by-id/:id", authenticateUser, taskController.getTaskById);
 router.delete("/delete-task/:taskId", authenticateUser, taskController.deleteTask);
-router.get("/get-by-project/:projectId?", authenticateUser, taskController.getTasksByProject);
+router.get("/get-by-project", authenticateUser, taskController.getTasksByProject);
+router.get("/get-by-project/:projectId", authenticateUser, taskController.getTasksByProject);
 router.delete('/:taskId/attachments/:attachmentId', taskController.deleteAttachment);
 
 
