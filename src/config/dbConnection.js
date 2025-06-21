@@ -2,16 +2,21 @@ const mongoose = require('mongoose');
 
 const connectDB = (mongoDbUrl) => {
     return new Promise((resolve, reject) => {
-        mongoose.connect(mongoDbUrl);
+        mongoose.connect(mongoDbUrl, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+
         mongoose.connection.on("connected", () => {
+            console.log("✅ MongoDB connected:", mongoDbUrl);
             resolve(true);
-            console.log("Connected", mongoDbUrl);
         });
+
         mongoose.connection.on("error", (err) => {
-            reject(false);
-            console.log(err)
+            console.error("❌ MongoDB connection error:", err);
+            reject(err);
         });
-    })
+    });
 };
 
 module.exports = connectDB;

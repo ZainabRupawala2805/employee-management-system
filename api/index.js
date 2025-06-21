@@ -43,6 +43,13 @@ app.use(authenticateUser);
 let cachedDb = null;
 async function connect() {
     if (cachedDb) return cachedDb;
+
+    if (!process.env.mongoDbUrl) {
+        console.warn("⚠️ mongoDbUrl is undefined! Check your .env file.");
+    } else {
+        console.log("🔍 Connecting to MongoDB with URL:", process.env.mongoDbUrl);
+    }
+
     cachedDb = await connectDB(process.env.mongoDbUrl);
     return cachedDb;
 }
